@@ -1,0 +1,32 @@
+.doogle {
+
+  .doogle-title {
+    font-size: 75px;
+    .blue {
+      color: blue;
+    }
+    
+    .yellow {
+      color: yellow;
+    }
+    
+    .green {
+      color: green;
+    }
+    
+    .red {
+      color: red;
+    }
+  }
+  
+  .doogle-form {
+    .error-display {
+      border: 2px solid red;
+    }
+    
+    .error-message {
+      color: red;
+    }
+  }
+  
+}
