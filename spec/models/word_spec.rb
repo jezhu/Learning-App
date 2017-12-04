@@ -26,7 +26,7 @@ describe Word do
   end
   
   describe "Associations" do
-    it "can have multiple defintions" do
+    it "can have multiple definitions" do
       assc = described_class.reflect_on_association(:definitions)
       expect(assc.macro).to eq :has_many
     end
