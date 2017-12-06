@@ -15,11 +15,12 @@ class Definitions extends React.Component {
   render() {
     let definitions;
     if(this.state.definitions) {
-      definitions = this.state.definitions.map((i) =>
-        <li key={i.id}>{i.content}</li>
-      );
+      definitions = this.state.definitions.map(function(i) {
+        if(i.content != null && i.content != "")
+          return <li key={i.id}>{i.content}</li>
+      });
     }
       
-    return(<div><ul>{definitions}</ul></div>);
+    return(<div className="definitions"><ul>{definitions}</ul></div>);
   }
 }

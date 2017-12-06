@@ -12,23 +12,27 @@ class DoogleController < ApplicationController
       return nil unless @fetched_definitions.present? 
       
       @word = Word.create!(word: params[:word])
+      word_count = 0
+      non_blank_count = 0
       @fetched_definitions.each do |definition|
+        # puts definition
         #<dt>:
         remove_1 = definition.to_s.gsub(/<dt>:*\s*:*/, "")
         #<sx></sx>
-        remove_2 = remove_1.gsub(/:?<sx>.*<\/sx>\s*/,"")
+        remove_2 = remove_1.gsub(/:?\s*<sx>.*<\/sx>\s*/,"")
         #<vi></vi>
-        remove_3 = remove_2.gsub(/<vi>.*<\/vi>\s*/,"")
+        remove_3 = remove_2.gsub(/\s*<vi>.*<\/vi>\s*/,"")
         #<dx><dxt></dxt></dx>
-        remove_4 = remove_3.gsub(/<dx>.*<\/dx>\s*/,"")
+        remove_4 = remove_3.gsub(/\s*<dx>.*<\/dx>\s*/,"")
         #<ca><cat></cat><ca>
-        remove_5 = remove_4.gsub(/<ca>.*<\/ca>\s*/,"")
+        remove_5 = remove_4.gsub(/\s*<ca>.*<\/ca>\s*/,"")
         #</dt>
-        clean_definition = remove_5.gsub(/<\/dt>/, "")
+        clean_definition = remove_5.gsub(/<\/dt>\s*/, "")
         
         if(clean_definition != '')
           clean_definition = clean_definition.gsub(/(<fw>|<un>|<d_link>|<it>)/,"").gsub(/(<\/fw>|<\/un>|<\/d_link>|<\/it>)\s*/,"")
           @word.definitions.create(content: clean_definition)
+          # puts clean_definition
         end
       end
     end

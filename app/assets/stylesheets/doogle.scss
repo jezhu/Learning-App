@@ -1,4 +1,6 @@
 .doogle {
+  
+  text-align: center;
 
   .doogle-title {
     font-family: Futura, "Trebuchet MS", Arial, sans-serif;
@@ -27,6 +29,15 @@
     
     .error-message {
       color: red;
+    }
+    
+    #word-input {
+      width: 400px;
+      padding: 3px;
+    }
+    
+    .definitions {
+      text-align: left;
     }
   }
   
