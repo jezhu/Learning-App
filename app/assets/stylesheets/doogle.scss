@@ -1,5 +1,5 @@
 .doogle {
-  
+  margin-top: 25%;
   text-align: center;
 
   .doogle-title {
@@ -31,9 +31,15 @@
       color: red;
     }
     
+    input {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    
     #word-input {
       width: 400px;
       padding: 3px;
+      display: inline-block;
     }
     
     .definitions {
